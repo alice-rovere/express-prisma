@@ -3,7 +3,7 @@
 import 'dotenv/config'
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { PrismaClient } from "../generated/prisma/index.js";
-import { categories, authors } from "./data/categories.js";
+import { categories, authors } from "./data/variables.js";
 import { randomYear, randomPrice, randIndex } from "./data/functions.js";
 
 
@@ -12,8 +12,10 @@ const prisma = new PrismaClient({adapter})
 
 async function main(){
 console.log('Seeding started');
-//eliminazione cateogire precedenti
-// await prisma.category.deleteMany();
+//eliminazione dati precedenti
+await prisma.category.deleteMany();
+await prisma.book.deleteMany();
+await prisma.author.deleteMany();
 
 //creazione categorie prese dal file data/categories
     await prisma.category.createMany({
@@ -27,7 +29,7 @@ console.log(actualCategories);
 //creazione randomica books
 
 const books = [];
-for(let i=0; i <actualCategories.length; i++){
+for(let i=0; i <15; i++){
     books.push({
         title : `Book ${i+1}`,
         publishedYear : randomYear(),
@@ -36,9 +38,9 @@ for(let i=0; i <actualCategories.length; i++){
     })
 }
 
-// await prisma.book.createMany({
-//     data: books
-// });
+await prisma.book.createMany({
+    data: books
+});
 
 //creazione randomica authors
 const actualAuthors = [];
