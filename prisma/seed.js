@@ -16,6 +16,10 @@ console.log('Seeding started');
 await prisma.category.deleteMany();
 await prisma.book.deleteMany();
 await prisma.author.deleteMany();
+// fa ripartire gli auto-increment dei record da 1
+await prisma.$executeRawUnsafe("ALTER TABLE `Category` AUTO_INCREMENT = 1");
+await prisma.$executeRawUnsafe("ALTER TABLE `Book` AUTO_INCREMENT = 1");
+await prisma.$executeRawUnsafe("ALTER TABLE `Author` AUTO_INCREMENT = 1");
 
 //creazione categorie prese dal file data/categories
     await prisma.category.createMany({
