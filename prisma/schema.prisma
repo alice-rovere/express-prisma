@@ -9,13 +9,34 @@ datasource db {
 
 //modello per books
 model Book {
-  id            Int      @id @default(autoincrement())
+  id            Int       @id @default(autoincrement())
   title         String
-  author        String
-  publishedYear Int      @db.SmallInt
-  description   String?  @db.Text
-  genre         String
-  price         Decimal  @db.Decimal(4, 2)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  // author        String
+  publishedYear Int       @db.SmallInt
+  description   String?   @db.Text
+  price         Decimal   @db.Decimal(4, 2)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  category      Category? @relation(fields: [categoryId], references: [id])
+  categoryId    Int?
+  author        Author[]
+}
+
+// 1 a N (una categoria può avere molti libri, un libro può avere una sola categoria)
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  products  Book[]
+}
+
+// N a M (un libro può avere molti autori, un autore può avere molti libri)
+model Author {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  surname   String   @db.VarChar(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books     Book[]
 }

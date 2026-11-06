@@ -1,0 +1,9 @@
+Ciao classe
+esercizio di oggi: Express + Prisma
+nome repo: express-prisma (La stessa dell'esercizio precedente)
+
+Definiamo un secondo modello Category con una relazione uno a molti (1-N) con Book
+Definito il nuovo modello e relazione procediamo anche qui con la migrazione
+
+ Bonus
+Prepariamo un file seed.js nella cartella Prisma per inserire dei dati di test nella tabella  Category. Ricordiamoci di settare il comando seed nel file prisma7.config.js

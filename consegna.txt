@@ -1,0 +1,21 @@
+Ciao classe
+esercizio di oggi: Express + Prisma
+nome repo: express-prisma
+
+Creaiamo un nuovo progetto Express. Ricordate .gitignore e file .env.
+Definiamo un router per le rotte CRUD '/books' (rotte che svilupperemo nelle prossime lezioni)
+
+Procediamo con l'installazione e inizializzazione di Prisma. Aiutiamoci con le slides per gli step e comandi: https://slides.com/teachersboolean/prisma-54bf5d/fullscreen?token=uaw00biw
+
+Definiamo un modello Book con almeno i campi id, titolo, descrizione, autore e prezzo.
+Migriamo poi il modello per avere la struttura della tabella sul nostro DB
+
+
+Next, set up your database:
+  1. Configure your DATABASE_URL in prisma7.config.ts
+  2. Run prisma db pull to introspect your database.
+
+Then, define your models in prisma/schema.prisma and run prisma migrate dev to apply your schema.
+
+Learn more: https://pris.ly/getting-started
+https://pris.ly/d/prisma-schema
