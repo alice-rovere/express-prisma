@@ -25,3 +25,16 @@ export const categories = [
   "Saggi",
   "Bambini",
 ];
+
+export const authors = [
+    { name: "Maria", surname: "Rossi" },
+    { name: "Luca", surname: "Bianchi" },
+    { name: "Giulia", surname: "Verdi" },
+    { name: "Marco", surname: "Neri" },
+    { name: "Anna", surname: "Gialli" },
+    { name: "Paolo", surname: "Rossi" },
+    { name: "Elena", surname: "Bianchi" },
+    { name: "Davide", surname: "Verdi" },
+    { name: "Francesca", surname: "Neri" },
+    { name: "Simone", surname: "Gialli" },
+]

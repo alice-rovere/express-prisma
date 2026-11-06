@@ -3,7 +3,7 @@
 import 'dotenv/config'
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { PrismaClient } from "../generated/prisma/index.js";
-import { categories } from "./data/categories.js";
+import { categories, authors } from "./data/categories.js";
 import { randomYear, randomPrice, randIndex } from "./data/functions.js";
 
 
@@ -27,7 +27,7 @@ console.log(actualCategories);
 //creazione randomica books
 
 const books = [];
-for(let i=0; i <15; i++){
+for(let i=0; i <actualCategories.length; i++){
     books.push({
         title : `Book ${i+1}`,
         publishedYear : randomYear(),
@@ -36,12 +36,18 @@ for(let i=0; i <15; i++){
     })
 }
 
-await prisma.book.createMany({
-    data: books
+// await prisma.book.createMany({
+//     data: books
+// });
+
+//creazione randomica authors
+const actualAuthors = [];
+for(let i=0; i < authors.length; i++){
+    actualAuthors.push(authors[i]);
+}
+await prisma.author.createMany({
+    data: authors
 });
-
-
-
 
 }
 //chiamiamo la funzione con il catch dell'errore pasasto da Prisma
