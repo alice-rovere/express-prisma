@@ -17,6 +17,10 @@ router.get('/', async (req,res, )=> {
 //show
 router.get('/:id', async  (req,res)=> {
     const id = Number(req.params.id);
+    if(!Number.isInteger(id))
+        return res.status(400).json({ status: 400, error: 'Invalid ID' });
+    
+
     const book = await prisma.book.findUnique({
         where: {id},
         include: { category: {
@@ -24,6 +28,8 @@ router.get('/:id', async  (req,res)=> {
         } },
         omit: {categoryId: true }
     });
+    if(!book)
+        return res.status(404).json({ status: 404, error: 'Book Not Found' });
     res.json(book);
 });
 
