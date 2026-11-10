@@ -1,0 +1,13 @@
+Ciao classe
+esercizio di oggi: Express + Prisma
+nome repo: express-prisma (La stessa dell'esercizio precedente)
+
+Continuando sulla repo degli esercizi precedenti utilizzare il prisma client per effettuare le queries a DB nelle rotte CRUD del vostro router per i libri.
+
+Creare due middleware custom per:
+la gestione degli errori 500
+la gestione delle rotte non esistenti (404)
+
+Impementare quindi rotte INDEX, SHOW e STORE, le quali ritorneranno gli opportuni dati in formato JSON.
+
+Buon lavoro!

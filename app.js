@@ -3,7 +3,7 @@ import booksRouter from "./routers/books.js"
 //setup
 const app = express();
 const port = 3000;
-
+app.use(express.json());
 //routing
 app.get('/', (req, res)=>{
     res.send('List of items here')
