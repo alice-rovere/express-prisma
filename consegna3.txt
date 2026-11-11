@@ -1,0 +1,12 @@
+Ciao classe
+esercizio di oggi: Express + Prisma CRUD
+nome repo: express-prisma (La stessa dell'esercizio precedente)
+
+Continuando sulla repo degli esercizi precedenti completiamo le queries a DB nelle rotte CRUD del vostro router per i libri.
+
+Impementare quindi rotte UPDATE e DELETE, le quali ritorneranno gli opportuni response in formato JSON.
+
+Bonus
+
+Estrarre la logica delle rotte CRUD nel vostro router in un file controller dedicato.
+Il file del coontroller conterrà le funzioni index(), show(), store(), update(), destroy() 
